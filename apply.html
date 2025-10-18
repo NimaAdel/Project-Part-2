@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The Application Form for job applicants.">
+  <meta name="keywords" content="Charity Job-Application">
+  <meta name="author" content="4-Bit Squad">
+  <title>Apply Here</title>
+  <link rel="stylesheet" href="/styles/project.css" type="text/css">
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="images/logo.png" alt="Company Logo">
+    <h1>The Charity</h1>
+    <p>Build your future with us.</p>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/jobs">Available Jobs</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/apply">Application Form</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+  <section>
+    <h2>Application Form</h2>
+    <form action="http://mercury.swin.edu.au/it000000/formtest.php" method="post">
+      <fieldset class="applicant-info-fieldset">
+        <Legend>Applicant Information</Legend>
+        <label for="reference-number">Reference Number</label>
+        <input
+          class="selectable"
+          type="text"
+          name="reference-number"
+          id="reference-number"
+          pattern="[a-zA-Z0-9]{5}"
+          placeholder="12345"
+          required>
+
+        <label for="first-name">First Name</label>
+        <input
+          class="selectable"
+          type="text"
+          name="first-name"
+          id="first-name"
+          pattern="[a-zA-Z]{1,20}"
+          placeholder="John"
+          required>
+
+        <label for="last-name">Last Name</label>
+        <input
+          class="selectable"
+          type="text"
+          name="last-name"
+          id="last-name"
+          pattern="[a-zA-Z]{1,20}"
+          placeholder="Smith"
+          required>
+
+        <label for="date-of-birth">Date of Birth</label>
+        <input
+          class="selectable"
+          type="text"
+          name="date-of-birth"
+          id="date-of-birth"
+          pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}"
+          placeholder="DD/MM/YYYY"
+          required>
+
+        <fieldset class="gender-fieldset">
+          <legend>Gender</legend>
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            name="gender"
+            id="male"
+            value="male"
+            required>
+
+          <label for="female">Female</label>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+            required>
+
+          <label for="non-binary">Non-Binary</label>
+          <input
+            type="radio"
+            name="gender"
+            id="non-binary"
+            value="non-binary"
+            required>
+
+          <label for="other">Other</label>
+          <input
+            type="radio"
+            name="gender"
+            id="other"
+            value="other"
+            required>
+        </fieldset>
+
+
+        <label for="street-address">Street Address</label>
+        <input
+          type="text"
+          class="selectable"
+          name="street-address"
+          id="street-address"
+          pattern=".{1,40}"
+          placeholder="123 Example Road"
+          required>
+
+        <label for="town">Town/Suburb</label>
+        <input
+          type="text"
+          class="selectable"
+          name="town"
+          id="town"
+          pattern=".{1,40}"
+          placeholder="Example"
+          required>
+
+        <label for="state">State</label>
+        <select class="selectable" name="state" id="state" required>
+          <option value="">Please Select a state</option>
+          <option value="VIC">VIC</option>
+          <option value="NSW">NSW</option>
+          <option value="QLD">QLD</option>
+          <option value="NT">NT</option>
+          <option value="WA">WA</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="ACT">ACT</option>
+        </select>
+
+        <label for="postcode">Postcode</label>
+        <input
+          type="text"
+          class="selectable"
+          name="postcode"
+          id="postcode"
+          pattern="[0-9]{4}"
+          placeholder="1234"
+          required>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="selectable"
+          name="email"
+          id="email"
+          placeholder="email@email.com"
+          required>
+
+        <label for="phone-number">Phone Number</label>
+        <input
+          type="text"
+          class="selectable"
+          name="phone-number"
+          id="phone-number"
+          pattern="[0-9]{8,12}"
+          placeholder="0412 345 678"
+          required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Skill List</legend>
+
+        <div class="skill-group-standard">
+          <label for="skill1">
+            <input type="checkbox" name="obedient" id="skill1" />
+            Strong Sense of Obedience
+          </label>
+
+          <label for="skill2">
+            <input type="checkbox" name="ignorance" id="skill2" />
+            General Ignorance
+          </label>
+
+          <label for="skill3">
+            <input type="checkbox" name="socail-lack" id="skill3" />
+            Lack Of Social Interaction
+          </label>
+
+          <label for="skill4">
+            <input type="checkbox" name="cursive" id="skill4" />
+            Cursive
+          </label>
+
+          <label for="skill5">
+            <input type="checkbox" name="document-signing" id="skill5" />
+            Willingness to sign any document
+          </label>
+        </div>
+
+        <div class="other-skills-control">
+          <input type="checkbox" name="other-skills" id="other-skills" />
+          <label for="other-skills">Other Skills</label>
+          <div id="hidden">
+            <label for="other-skills-long">What are your other skills?</label>
+            <textarea
+              class="selectable"
+              name="other-skills-long"
+              id="other-skills-long"
+              placeholder="Type your other skills here"></textarea>
+          </div>
+        </div>
+      </fieldset>
+      <input class="button" type="submit" value="Submit">
+      <input class="button" type="reset" value="Reset form">
+    </form>
+  </section>
+
+
+  <div id="footer">
+    <footer>
+      <nav>
+        <ul>
+          <!-- moved the github and jira to the bottom to follow assessment critera and added email, delete github and jira from nav bar in header eventaully-->
+          <li><a href="https://github.com/106131320/106131320.github.io" target="_blank">The Charity's Github Page!</a>
+          </li>
+          <li><a
+              href="https://student-team-zoiq7lxh.atlassian.net/jira/software/projects/SCRUM/boards/1?jql=assignee+IN+%28712020%3Abe9216f0-d140-42bb-b60f-a7aef8324e48%2C+empty%29&atlOrigin=eyJpIjoiODg0NmZjNGFiNmYyNGUyMzhlNzUxNzFkODQyN2M4N2EiLCJwIjoiaiJ9"
+              target="_blank">The Charity's Jira portfolio </a></li>
+          <li><a href="mailto:theonlyrealcharity@gmail.com" target="_blank">theonlyrealcharity@gmail.com</a></li>
+        </ul>
+      </nav>
+      <p>© 2025 The Charity</p>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,768 @@
+/*
+filename: project.css
+author: The 4-Bit Squad
+created: 27/8/25
+last modified: 22/9/25
+description: Global styles for all HTML files, including layout, typography,
+             navigation, forms, and specific page sections like job postings
+             and the homepage.
+*/
+
+/* --- Variable Declaration --- */
+:root {
+  --main-blue: #004b99;
+}
+
+/* --- Base Styles --- */
+/* Universal box-sizing, font-family, and reset for margins/paddings */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body layout and general typography */
+body {
+  background: #eef2f7;
+  /* Light grey-blue background */
+  color: #333;
+  /* Dark grey text */
+  line-height: 1.6;
+  /* Comfortable line spacing */
+  max-width: 90%;
+  /* Responsive maximum width */
+  margin: 20px auto;
+  /* Center the body content with top/bottom margin */
+  padding: 15px;
+  /* Inner padding */
+}
+
+/* Specific body styling for the 'jobs' page */
+body#jobs section {
+  max-width: 960px;
+  /* Wider section for job postings */
+  margin-left: 25%;
+  /* Aligns job postings to the right */
+}
+
+/* List styling */
+ul,
+ol {
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+ul li,
+ol li {
+  margin-bottom: 7px;
+}
+
+/* --- Image Styles --- */
+
+/* Logo specific styling */
+#logo {
+  max-width: 120px;
+  border-radius: 50%;
+  /* Makes the logo circular */
+  border: 3px solid var(--main-blue);
+  /* Blue border */
+}
+
+/* --- Navigation --- */
+nav {
+  background-color: var(--main-blue);
+  /* Main blue background */
+  border-radius: 6px;
+  margin-bottom: 30px;
+  padding: 6px 20px 0px 0px;
+  box-shadow: 0 3px 6px rgba(0, 75, 153, 0.3);
+  /* Subtle shadow */
+}
+
+nav ul {
+  list-style: none;
+  /* Removes bullet points */
+  display: flex;
+  /* Flexbox for horizontal alignment */
+  gap: 20px;
+  /* Space between list items */
+  justify-content: center;
+  /* Centers navigation items */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  /* Smooth hover transition */
+  display: block;
+  /* Makes the entire link clickable */
+}
+
+nav ul li a:hover {
+  background-color: #003366;
+  /* Darker blue on hover */
+}
+
+/* --- Header --- */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  color: var(--main-blue);
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- Sections --- */
+/* General section styling */
+section {
+  background: white;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 15px rgba(0, 75, 153, 0.15);
+  /* Prominent shadow */
+  margin-bottom: 40px;
+  border-left: 6px solid var(--main-blue);
+  /* Left accent border */
+}
+
+/* Styling for job posting sections */
+section.job-posting h2 {
+  color: var(--main-blue);
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+}
+
+.ref-number {
+  font-family: monospace;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.short-desc {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.reporting-line {
+  font-style: italic;
+  color: #666;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+/* --- Tables --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Removes double borders */
+  margin-bottom: 20px;
+}
+
+/* Table cell borders */
+table,
+th,
+td {
+  border: 1.5px solid var(--main-blue);
+}
+
+/* Table cell padding and alignment */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+/* --- Aside --- */
+aside {
+  background-color: #cce0ff;
+  /* Light blue background */
+  border-left: 6px solid var(--main-blue);
+  /* Left accent border */
+  padding: 20px 25px;
+  margin: 40px 0;
+  border-radius: 8px;
+  color: #002a66;
+  /* Darker blue text */
+  font-size: 1.1rem;
+}
+
+aside h3 {
+  margin-bottom: 12px;
+}
+
+/* --- Form Styling --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Space between fieldsets and buttons */
+}
+
+fieldset {
+  border: 1px solid var(--main-blue);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f8fbfd;
+  /* Very light blue background */
+  display: flex;
+  /* Flex container for internal alignment */
+  flex-direction: column;
+  /* Stacks contents vertically */
+  gap: 15px;
+  /* Space between direct children of the fieldset */
+}
+
+legend {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-blue);
+  padding: 0 10px;
+  margin-left: -10px;
+  /* Pulls legend slightly to the left over the border */
+}
+
+/* Labels within the applicant information fieldset */
+.applicant-info-fieldset label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: -5px;
+  /* Pulls label closer to the input */
+  display: block;
+  /* Ensures full width for consistency */
+}
+
+/* Styling for selectable input fields (text, email, select) */
+.selectable {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth hover/focus transition */
+}
+
+.selectable:hover {
+  border-color: var(--main-blue);
+  box-shadow: 0 0 0 3px rgba(0, 75, 153, 0.2);
+  /* Light blue shadow on hover */
+  outline: none;
+  /* Removes default outline */
+}
+
+/* Custom styling for select dropdowns */
+select {
+  appearance: none;
+  /* Removes default OS styling */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 30px;
+  /* Space for a custom dropdown arrow if desired */
+}
+
+/* Gender Fieldset specific styling */
+.gender-fieldset {
+  flex-direction: row;
+  /* Arranges radio buttons horizontally */
+  flex-wrap: wrap;
+  /* Allows items to wrap on smaller screens */
+  gap: 20px;
+  border: 1px solid #ccc;
+  /* Lighter border */
+  background-color: #f0f4f7;
+  /* Even lighter background */
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.gender-fieldset legend {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+  margin-left: -5px;
+  padding: 0 5px;
+}
+
+/* Styling for individual radio button labels within the gender fieldset */
+.gender-fieldset label {
+  display: flex;
+  align-items: center;
+  /* Vertically centers radio button and text */
+  font-weight: normal;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.gender-fieldset input[type="radio"] {
+  margin-right: 8px;
+  /* Space between radio button and its label text */
+  flex-shrink: 0;
+  /* Prevents radio button from shrinking */
+}
+
+/* Textarea resizing behavior */
+form textarea {
+  resize: vertical;
+  /* Allows vertical resizing only */
+}
+
+/* Grouping for standard skill checkboxes */
+.skill-group-standard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: -12px;
+  /* Adjusts spacing if followed by other elements */
+}
+
+.skill-group-standard label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.skill-group-standard input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Styling for the "Other Skills" checkbox and associated text area */
+.other-skills-control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  align-items: center;
+  /* Vertically centers checkbox with label */
+}
+
+.other-skills-control label[for="other-skills"] {
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  margin-top: -3px;
+  margin-left: 4px;
+  margin-right: 10px;
+}
+
+.other-skills-control input[type="checkbox"] {
+  margin-right: -5px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Hidden textarea for "Other Skills" - initially hidden */
+#hidden {
+  max-height: 0;
+  opacity: 0;
+  /* Smooth transition for revealing the textarea */
+  transition:
+    max-height 0.5s ease-out,
+    opacity 0.5s ease-out,
+    padding 0.5s ease-out;
+  width: 100%;
+  overflow: hidden;
+  /* Ensures content is clipped when hidden */
+}
+
+/* Shows the hidden textarea when the "Other Skills" checkbox is checked */
+.other-skills-control input#other-skills:checked~#hidden {
+  max-height: 200px;
+  /* Allows the textarea to expand */
+  opacity: 1;
+}
+
+#hidden textarea {
+  width: 100%;
+}
+
+/* Submit and Reset Buttons */
+.button {
+  background-color: var(--main-blue);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Smooth hover effects */
+  margin-top: 10px;
+  align-self: flex-start;
+  /* Aligns button to the left within flex container */
+}
+
+.button:hover {
+  background-color: #003366;
+  /* Darker blue on hover */
+  transform: translateY(-2px);
+  /* Slight lift effect */
+}
+
+input[type="reset"] {
+  background-color: #6c757d;
+  /* Grey for reset button */
+}
+
+input[type="reset"]:hover {
+  background-color: #5a6268;
+  /* Darker grey on hover */
+}
+
+/* --- Homepage Styling --- */
+/* Overall styling for the homepage body */
+.home_page {
+  background: #eef2f7;
+  color: #333;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 30px;
+}
+
+/* Main homepage title/heading */
+.home {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #ffffff;
+  /* White text for contrast, likely over an image */
+  font-weight: bold;
+}
+
+/* White background box, possibly for content sections */
+.white_box {
+  background-color: white;
+}
+
+/* Mission statement heading */
+#mission {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #004b99;
+  font-weight: bold;
+}
+
+/* Mission statement text */
+#mission_text {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #004b99;
+  font-weight: bold;
+}
+
+/* Donate section heading */
+#donate {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #004b99;
+  font-weight: bold;
+}
+
+/* Donate paragraph text */
+p#donate_p {
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: -3%;
+  /* Pulls text up closer to heading */
+}
+
+/* Styling for a donate button container */
+#donate_button {
+  position: relative;
+  width: 300px;
+}
+
+/* General h3 styling on homepage */
+.home h3 {
+  text-align: center;
+  font-size: 40px;
+}
+
+/* Caption styling on homepage */
+.home #caption {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Donate paragraph for specific text alignment */
+#donate_p {
+  text-align: left;
+  font-size: 30px;
+}
+
+/* Image styling for homepage elements */
+#home,
+#home_image,
+#happy_students {
+  width: 100%;
+  text-align: center;
+  object-fit: fill;
+  /* Fills the container, potentially distorting aspect ratio */
+}
+
+/* Text overlay container background */
+#text div {
+  background-color: #ffffff9c;
+  /* Semi-transparent white background */
+}
+
+/* Text overlay positioning */
+#text {
+  margin-bottom: -51px;
+}
+
+/* Line break styling for homepage */
+.home br {
+  line-height: 2;
+  /* Increases spacing after breaks */
+}
+
+/* Centered text overlay (e.g., over a hero image) */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 120%);
+  /* Centers and moves down */
+  color: #004b99;
+  /* Main blue text */
+  font-weight: bold;
+  text-align: center;
+  font-size: 4vw;
+  /* Responsive font size */
+  text-shadow:
+    /* Outline effect for better readability on varied backgrounds */
+    -0.15vw -0.15vw 0 #000,
+    0.15vw -0.15vw 0 #000,
+    -0.15vw 0.15vw 0 #000,
+    0.15vw 0.15vw 0 #000,
+    -0.2vw 0 0 #000,
+    0.2vw 0 0 #000,
+    0 -0.2vw 0 #000,
+    0 0.2vw 0 #000;
+  max-width: 80%;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.centered h3 {
+  font-size: 1em;
+  /* Relative to .centered font-size */
+  margin-bottom: 0.2em;
+}
+
+.centered p {
+  font-size: 0.6em;
+  /* Relative to .centered font-size */
+  margin: 0;
+  padding: 0;
+}
+
+/* Media queries for responsive font sizing of centered text */
+@media (max-width: 768px) {
+  .centered {
+    font-size: 6vw;
+    /* Larger font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .centered {
+    font-size: 7vw;
+    /* Even larger font size for mobile */
+  }
+}
+
+/* Card component styling */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  /* Soft shadow */
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  color: #004b99;
+}
+
+/* Team figure image styling */
+.team-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Description list styling (dt for term, dd for description) */
+dl dt {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #004b99;
+}
+
+dl dd ul {
+  margin: 6px 0 14px 20px;
+}
+
+/* Table styling within content */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table caption {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #004b99;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
+  /* Light grey background for table headers */
+}
+
+/* Styling for a "revealed" element, often for hidden content */
+#revealed a,
+#revealed p {
+  color: #000000;
+  /* Black text for revealed content */
+}
+
+#revealed {
+  opacity: 0;
+  /* Initially hidden */
+  text-decoration: none;
+  font-weight: normal;
+  transition: opacity 1s;
+  /* Smooth reveal transition */
+}
+
+#revealed:hover {
+  opacity: 1;
+  /* Fully visible on hover */
+}
+
+/* Specific heading styling for homepage */
+#home h3 {
+  color: var(--main-blue);
+  font-weight: bold;
+}
+
+/* --- Footer Styling --- */
+#footer {
+  background-color: var(--main-blue);
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  /* Shadow above the footer */
+  border-radius: 8px;
+}
+
+#footer p {
+  margin: 0;
+  font-size: 15px;
+}
+
+#footer nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#footer nav ul li {
+  margin: 0 10px;
+  font-size: 15px;
+}
+
+#footer nav ul li a {
+  font-weight: bold;
+  transition: color 0.4s;
+  /* Smooth color transition on hover */
+}
+
+#footer nav ul li a:hover {
+  color: #cabebe;
+  /* Light grey on hover */
+}
+
+/* Background image for happy students section */
+.happy_students {
+  background-image: url(/images/happy_students_pic.jpg);
+  background-size: cover;
+  /* Covers the entire area */
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 600px) {
+
+  /* Navigation for smaller screens */
+  nav ul {
+    flex-direction: column;
+    /* Stacks navigation items vertically */
+    gap: 12px;
+    align-items: center;
+    /* Centers items */
+  }
+
+  /* Form elements for smaller screens */
+  form label {
+    width: 100%;
+    /* Labels take full width */
+  }
+
+  form input[type="submit"],
+  form input[type="reset"] {
+    width: 100%;
+    /* Buttons take full width */
+  }
+
+  fieldset>input[type="text"],
+  fieldset>input[type="email"],
+  fieldset>select.selectable {
+    width: 100%;
+    /* Input fields and selects take full width */
+  }
+}
