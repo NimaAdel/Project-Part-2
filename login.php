@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "test");
+require_once 'settings.php'; // Includes the DB connection $conn
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Invalid credentials!";
     }
 }
+$conn->close(); // Close connection after use
 ?>
 <!DOCTYPE html>
 <html>

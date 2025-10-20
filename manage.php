@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-$conn = new mysqli("localhost", "root", "", "jobsdb");
+require_once 'settings.php';
 
 // Delete EOIs by job reference
 if (isset($_POST['delete_by_job'])) {
@@ -121,3 +121,6 @@ $result = $stmt->get_result();
     </form>
 </body>
 </html>
+<?php
+$conn->close();
+?>
