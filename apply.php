@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="The Application Form for job applicants.">
-  <meta name="keywords" content="Charity Job-Application">
-  <meta name="author" content="4-Bit Squad">
-  <title>Apply Here</title>
-  <link rel="stylesheet" href="/styles/project.css" type="text/css">
-</head>
-
-<body>
-  <header>
-    <img id="logo" src="images/logo.png" alt="Company Logo">
-    <h1>The Charity</h1>
-    <p>Build your future with us.</p>
-
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/jobs">Available Jobs</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/apply">Application Form</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-
-
+<?php require_once 'header.inc'; ?>
   <section>
     <h2>Application Form</h2>
     <form action="http://mercury.swin.edu.au/it000000/formtest.php" method="post">
@@ -221,23 +191,4 @@
     </form>
   </section>
 
-
-  <div id="footer">
-    <footer>
-      <nav>
-        <ul>
-          <!-- moved the github and jira to the bottom to follow assessment critera and added email, delete github and jira from nav bar in header eventaully-->
-          <li><a href="https://github.com/106131320/106131320.github.io" target="_blank">The Charity's Github Page!</a>
-          </li>
-          <li><a
-              href="https://student-team-zoiq7lxh.atlassian.net/jira/software/projects/SCRUM/boards/1?jql=assignee+IN+%28712020%3Abe9216f0-d140-42bb-b60f-a7aef8324e48%2C+empty%29&atlOrigin=eyJpIjoiODg0NmZjNGFiNmYyNGUyMzhlNzUxNzFkODQyN2M4N2EiLCJwIjoiaiJ9"
-              target="_blank">The Charity's Jira portfolio </a></li>
-          <li><a href="mailto:theonlyrealcharity@gmail.com" target="_blank">theonlyrealcharity@gmail.com</a></li>
-        </ul>
-      </nav>
-      <p>© 2025 The Charity</p>
-    </footer>
-  </div>
-</body>
-
-</html>
+<?php require_once 'footer.inc'; ?>
