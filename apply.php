@@ -1,7 +1,7 @@
 <?php require_once 'header.inc'; ?>
   <section>
     <h2>Application Form</h2>
-    <form action="http://mercury.swin.edu.au/it000000/formtest.php" method="post">
+    <form action="process_eoi.php" method="post" novalidate>
       <fieldset class="applicant-info-fieldset">
         <Legend>Applicant Information</Legend>
         <label for="reference-number">Reference Number</label>
@@ -158,7 +158,7 @@
           </label>
 
           <label for="skill3">
-            <input type="checkbox" name="socail-lack" id="skill3" />
+            <input type="checkbox" name="social-lack" id="skill3" />
             Lack Of Social Interaction
           </label>
 
