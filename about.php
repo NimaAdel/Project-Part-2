@@ -13,9 +13,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 $conn->close();
-
-$body_id = ""; // You can set specific IDs if needed
-$body_class = "";
 require_once 'header.inc';
 ?>
 

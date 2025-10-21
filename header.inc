@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="/styles/project.css" type="text/css">
 </head>
 
+
+<!-- This php code checks to see if there are any classes or ids specific to the pages body element (defined by a php variable) this allow us to maintain our styling whilst extracting the header -->
+
 <body <?php echo isset($body_id) ? "id=\" $body_id\"" : "" ; ?> class="
+    <!-- This line checks to see if a variable named body_id is set and if it is it adds it's value as the id to the body element -->
     <?php echo isset($body_class) ? $body_class : ""; ?>">
+    <!-- This does the same as the above line instead for class (I believe this ended up being unnecessary for the project as is but may aswell keep the line here for future styling efforts.)-->
 
     <header>
         <img id="logo" src="images/logo.png" alt="Company Logo">

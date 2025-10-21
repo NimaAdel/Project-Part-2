@@ -6,7 +6,6 @@ $sql = "SELECT * FROM jobs ORDER BY job_id ASC";
 $result = $conn->query($sql);
 
 $body_id = "jobs"; // Set a specific body ID for styling
-$body_class = "";
 require_once 'header.inc';
 ?>
 
