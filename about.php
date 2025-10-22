@@ -104,4 +104,11 @@ require_once 'header.inc';
     </section>
   </main>
 
+<?php
+// Sanduni: Added dynamic team member counter
+if (!empty($membersData)) {
+  echo "<p><strong>Total team members: " . count($membersData) . "</strong></p>";
+}
+?>
+
 <?php require_once 'footer.inc'; ?>
