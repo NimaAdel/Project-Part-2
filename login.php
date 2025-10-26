@@ -39,6 +39,7 @@ $conn->close(); // Close connection after use
         <input type="password" name="password" required placeholder="Password"><br>
         <button type="submit">Login</button>
     </form>
+    <a href="/">Return to homepage</a>
 </body>
 
 </html>
