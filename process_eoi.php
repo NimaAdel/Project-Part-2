@@ -11,13 +11,23 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST" || empty($_POST)) {
 
 $table = 'eoi';
 
-function sanitise_input($data) {
+function sanitise_input($data)
+{
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
 $fields = [
-    'reference-number', 'first-name', 'last-name', 'date-of-birth', 'gender',
-    'street-address', 'town', 'state', 'postcode', 'email', 'phone-number',
+    'reference-number',
+    'first-name',
+    'last-name',
+    'date-of-birth',
+    'gender',
+    'street-address',
+    'town',
+    'state',
+    'postcode',
+    'email',
+    'phone-number',
     'other-skills-long'
 ];
 
@@ -34,8 +44,17 @@ foreach ($skills as $skill) {
 $data['other-skills'] = isset($_POST['other-skills']) ? 'Yes' : 'No';
 
 $required_fields = [
-    'reference-number', 'first-name', 'last-name', 'date-of-birth', 'gender',
-    'street-address', 'town', 'state', 'postcode', 'email', 'phone-number'
+    'reference-number',
+    'first-name',
+    'last-name',
+    'date-of-birth',
+    'gender',
+    'street-address',
+    'town',
+    'state',
+    'postcode',
+    'email',
+    'phone-number'
 ];
 
 $errors = [];
@@ -84,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `$table` (
     document_signing VARCHAR(3),
     other_skills VARCHAR(3),
     other_skills_long TEXT,
-    status VARCHAR(20) DEFAULT 'New'
+    status ENUM('New', 'Current', 'Final') DEFAULT 'New'
 ) ENGINE=InnoDB;
 ";
 
@@ -130,6 +149,8 @@ mysqli_stmt_bind_param(
 if (mysqli_stmt_execute($stmt)) {
     $eoi_id = mysqli_insert_id($conn);
     echo "<h2>Application submitted successfully!</h2>";
+    echo "<p>Your Expression of Interest ID is: <strong>" . htmlspecialchars($eoi_id) . "</strong>. Please keep this for your records.</p>";
+    echo "<p><a href='apply.php'>Submit another application</a> | <a href='jobs.php'>View Available Jobs</a></p>";
 } else {
     echo "<p>Database error: " . mysqli_error($conn) . "</p>";
 }
