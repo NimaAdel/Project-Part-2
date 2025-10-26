@@ -23,14 +23,22 @@ $conn->close(); // Close connection after use
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Login</title></head>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/project.css" type="text/css">
+
+</head>
+
 <body>
-    <form method="post">
+    <form method="post" class="login">
         <h2>HR Login</h2>
-        <?php if (!empty($error)) echo "<p style='color:red'>$error</p>"; ?>
+        <?php if (!empty($error))
+            echo "<p style='color:red'>$error</p>"; ?>
         <input type="text" name="username" required placeholder="Username"><br>
         <input type="password" name="password" required placeholder="Password"><br>
         <button type="submit">Login</button>
     </form>
 </body>
+
 </html>
