@@ -155,5 +155,4 @@ $conn->close();
         <a href="/">← Return to homepage</a>
     </div>
 </body>
-
 </html>
