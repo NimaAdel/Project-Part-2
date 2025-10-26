@@ -205,12 +205,22 @@ aside h3 {
 }
 
 /* --- Form Styling --- */
+.manage {
+  flex-direction: row;
+}
+
+.login {
+  display: block;
+}
+
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   /* Space between fieldsets and buttons */
 }
+
+
 
 fieldset {
   border: 1px solid var(--main-blue);
