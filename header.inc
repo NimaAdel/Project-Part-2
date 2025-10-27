@@ -8,7 +8,7 @@
     <meta name="keywords" content="Charity, Non-profit, Jobs, About" />
     <meta name="author" content="4-Bit Squad" />
     <title>The Charity</title>
-    <link rel="stylesheet" href="/styles/project.css" type="text/css">
+    <link rel="stylesheet" href="styles/project.css" type="text/css">
 </head>
 
 
@@ -26,10 +26,10 @@
 
         <nav>
             <ul>
-                <li><a href="/index.php">Home</a></li>
-                <li><a href="/jobs.php">Available Jobs</a></li>
-                <li><a href="/about.php">About Us</a></li>
-                <li><a href="/apply.php">Application Form</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="jobs.php">Available Jobs</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="apply.php">Application Form</a></li>
             </ul>
         </nav>
     </header>

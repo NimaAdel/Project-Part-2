@@ -128,7 +128,7 @@ $result = $stmt->get_result();
         <input type="text" name="job_ref" required placeholder="Job Ref">
         <button type="submit" name="delete_by_job">Delete by Job Ref</button>
     </form>
-    <a href="/logout.php">Logout</a>
+    <a href="logout.php">Logout</a>
 </body>
 
 </html>

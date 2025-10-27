@@ -52,7 +52,7 @@ $conn->close();
             <button type="submit">Login</button>
         </form>
 
-        <a href="/">← Return to homepage</a>
+        <a href="index.php">← Return to homepage</a>
     </div>
 </body>
 
