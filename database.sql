@@ -41,8 +41,8 @@ CREATE TABLE `about` (
 
 INSERT INTO `about` (`id`, `member_name`, `student_id`, `contributions`, `quote`) VALUES
 (1, 'Sanduni Yasaransi', '105524495', 'Jobs page sections; About page content & accessibility checks; Dynamic data loading for about page.', 'Code from the heart.'),
-(2, 'Samuel (Soph) Newbegin', '105337923', 'Team discussions & creative direction.', 'Talk about low-budget flights. No food or movies? I’m outta here.'),
-(3, 'Nima Adel', '105911262', 'Designed jobs.html, created logo, separated CSS into external file.', 'AI is the future.'),
+(2, 'Samuel (Soph) Newbegin', '105337923', 'Designed Application Page, Created header & footer .inc files, created settings.php, General fix ups.', 'Talk about low-budget flights. No food or movies? I’m outta here.'),
+(3, 'Nima Adel', '105911262', 'Designed jobs.html, created logo.', 'AI is the future.'),
 (4, 'Zoe Ballantyne', '106131320', 'Content reviews; outreach copy.', 'I really care for the youth.');
 
 -- --------------------------------------------------------

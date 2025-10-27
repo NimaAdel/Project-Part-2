@@ -11,6 +11,11 @@ description: Global styles for all HTML files, including layout, typography,
 /* --- Variable Declaration --- */
 :root {
   --main-blue: #004b99;
+  /* Original main blue */
+  --jobs-primary-blue: #2c3e50;
+  /* Darker blue for job page headings/text */
+  --login-primary-blue: #5563de;
+  /* Medium blue for login page elements */
 }
 
 /* --- Base Styles --- */
@@ -22,7 +27,7 @@ description: Global styles for all HTML files, including layout, typography,
   padding: 0;
 }
 
-/* Body layout and general typography */
+/* Base Body layout and general typography - Overridden by specific body IDs later */
 body {
   background: #eef2f7;
   /* Light grey-blue background */
@@ -38,15 +43,7 @@ body {
   /* Inner padding */
 }
 
-/* Specific body styling for the 'jobs' page */
-body#jobs section {
-  max-width: 960px;
-  /* Wider section for job postings */
-  margin-left: 25%;
-  /* Aligns job postings to the right */
-}
-
-/* List styling */
+/* General List styling */
 ul,
 ol {
   margin-left: 25px;
@@ -59,7 +56,6 @@ ol li {
 }
 
 /* --- Image Styles --- */
-
 /* Logo specific styling */
 #logo {
   max-width: 120px;
@@ -126,7 +122,7 @@ header p {
 }
 
 /* --- Sections --- */
-/* General section styling */
+/* General section styling - overridden by specific section types */
 section {
   background: white;
   border-radius: 10px;
@@ -136,72 +132,6 @@ section {
   margin-bottom: 40px;
   border-left: 6px solid var(--main-blue);
   /* Left accent border */
-}
-
-/* Styling for job posting sections */
-section.job-posting h2 {
-  color: var(--main-blue);
-  margin-bottom: 10px;
-  font-size: 1.7rem;
-}
-
-.ref-number {
-  font-family: monospace;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #666;
-}
-
-.short-desc {
-  margin-bottom: 12px;
-  font-size: 1rem;
-}
-
-.reporting-line {
-  font-style: italic;
-  color: #666;
-  margin: 15px 0;
-  font-weight: 600;
-}
-
-/* --- Tables --- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  /* Removes double borders */
-  margin-bottom: 20px;
-}
-
-/* Table cell borders */
-table,
-th,
-td {
-  border: 1.5px solid var(--main-blue);
-}
-
-/* Table cell padding and alignment */
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-}
-
-/* --- Aside --- */
-aside {
-  background-color: #cce0ff;
-  /* Light blue background */
-  border-left: 6px solid var(--main-blue);
-  /* Left accent border */
-  padding: 20px 25px;
-  margin: 40px 0;
-  border-radius: 8px;
-  color: #002a66;
-  /* Darker blue text */
-  font-size: 1.1rem;
-}
-
-aside h3 {
-  margin-bottom: 12px;
 }
 
 /* --- Form Styling --- */
@@ -219,8 +149,6 @@ form {
   gap: 20px;
   /* Space between fieldsets and buttons */
 }
-
-
 
 fieldset {
   border: 1px solid var(--main-blue);
@@ -255,7 +183,7 @@ legend {
   /* Ensures full width for consistency */
 }
 
-/* Styling for selectable input fields (text, email, select) */
+/* Styling for selectable input fields (text, email, select, textarea) */
 .selectable {
   width: 100%;
   padding: 10px 12px;
@@ -442,7 +370,6 @@ input[type="reset"]:hover {
 }
 
 /* --- Homepage Styling --- */
-/* Overall styling for the homepage body */
 .home_page {
   background: #eef2f7;
   color: #333;
@@ -459,11 +386,10 @@ input[type="reset"]:hover {
   margin-top: 40px;
   margin-bottom: 40px;
   color: #ffffff;
-  /* White text for contrast, likely over an image */
+
   font-weight: bold;
 }
 
-/* White background box, possibly for content sections */
 .white_box {
   background-color: white;
 }
@@ -474,7 +400,7 @@ input[type="reset"]:hover {
   font-size: 50px;
   margin-top: 40px;
   margin-bottom: 40px;
-  color: #004b99;
+  color: var(--main-blue);
   font-weight: bold;
 }
 
@@ -484,7 +410,7 @@ input[type="reset"]:hover {
   font-size: 30px;
   margin-top: 40px;
   margin-bottom: 40px;
-  color: #004b99;
+  color: var(--main-blue);
   font-weight: bold;
 }
 
@@ -494,18 +420,28 @@ input[type="reset"]:hover {
   font-size: 50px;
   margin-top: 40px;
   margin-bottom: 40px;
-  color: #004b99;
+  color: var(--main-blue);
   font-weight: bold;
 }
 
-/* Donate paragraph text */
-p#donate_p {
-  text-align: center;
+/* Donate paragraph text (specific ID for alignment override) */
+#donate_p {
+  text-align: left;
+  font-size: 30px;
   width: 60%;
   margin-left: 20%;
   margin-top: -3%;
   /* Pulls text up closer to heading */
 }
+
+/* Donate paragraph (general) */
+p#donate_p {
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: -3%;
+}
+
 
 /* Styling for a donate button container */
 #donate_button {
@@ -523,12 +459,6 @@ p#donate_p {
 .home #caption {
   text-align: center;
   font-size: 20px;
-}
-
-/* Donate paragraph for specific text alignment */
-#donate_p {
-  text-align: left;
-  font-size: 30px;
 }
 
 /* Image styling for homepage elements */
@@ -565,7 +495,7 @@ p#donate_p {
   left: 50%;
   transform: translate(-50%, 120%);
   /* Centers and moves down */
-  color: #004b99;
+  color: var(--main-blue);
   /* Main blue text */
   font-weight: bold;
   text-align: center;
@@ -599,21 +529,6 @@ p#donate_p {
   padding: 0;
 }
 
-/* Media queries for responsive font sizing of centered text */
-@media (max-width: 768px) {
-  .centered {
-    font-size: 6vw;
-    /* Larger font size for tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .centered {
-    font-size: 7vw;
-    /* Even larger font size for mobile */
-  }
-}
-
 /* Card component styling */
 .card {
   background: #fff;
@@ -627,7 +542,7 @@ p#donate_p {
 
 .card h2 {
   margin-bottom: 12px;
-  color: #004b99;
+  color: var(--main-blue);
 }
 
 /* Team figure image styling */
@@ -641,7 +556,7 @@ p#donate_p {
 dl dt {
   font-weight: bold;
   margin-top: 10px;
-  color: #004b99;
+  color: var(--main-blue);
 }
 
 dl dd ul {
@@ -657,7 +572,7 @@ table {
 table caption {
   margin-bottom: 10px;
   font-weight: bold;
-  color: #004b99;
+  color: var(--main-blue);
 }
 
 th,
@@ -672,7 +587,6 @@ th {
   /* Light grey background for table headers */
 }
 
-/* Styling for a "revealed" element, often for hidden content */
 #revealed a,
 #revealed p {
   color: #000000;
@@ -745,7 +659,271 @@ th {
   /* Covers the entire area */
 }
 
+
+/* --- Page-Specific Styles (Overriding Global Styles) --- */
+
+/* --- Jobs Page Specific Styles --- */
+body#jobs {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  margin: 20px auto;
+  padding: 0;
+  /* Overrides general body padding */
+  max-width: 100%;
+  /* Allows the container to manage width */
+}
+
+/* General section styling for the 'jobs' page */
+
+.jobs-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-title h1 {
+  font-size: 2.2rem;
+  color: var(--jobs-primary-blue);
+  margin: 0;
+}
+
+.job-posting {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-posting:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.job-posting h2 {
+  color: var(--jobs-primary-blue);
+  margin-bottom: 0.3rem;
+  font-size: 1.7rem;
+  /* Re-added from old section.job-posting h2 */
+}
+
+.job-posting .ref-number {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-family: monospace;
+  font-weight: bold;
+  /* Re-added from old .ref-number */
+}
+
+.job-posting .short-desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.job-posting .reporting-line {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  /* Re-added from old .reporting-line */
+}
+
+/* Tables within job postings */
+.job-posting table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  /* Overrides general table margin */
+  border: none;
+  /* Remove general table border */
+}
+
+.job-posting th,
+.job-posting td {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  border: none;
+  /* Remove general cell borders */
+}
+
+.job-posting th {
+  width: 30%;
+  color: var(--jobs-primary-blue);
+  font-weight: 600;
+  background: none;
+  /* Remove general th background */
+}
+
+.job-posting td {
+  color: #555;
+}
+
+/* Headings within job postings (e.g., for responsibilities) */
+.job-posting h3 {
+  margin-top: 1.5rem;
+  color: var(--jobs-primary-blue);
+  font-size: 1.2rem;
+}
+
+/* Lists within job postings */
+.job-posting ul,
+.job-posting ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+  /* Overrides general list margins */
+}
+
+.job-posting ul li,
+.job-posting ol li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+/* Aside for job postings */
+body#jobs aside {
+  background: #e9f2ff;
+  border-left: 5px solid var(--login-primary-blue);
+  /* Reused primary blue from login for consistency */
+  padding: 1.5rem 2rem;
+  margin: 3rem auto;
+  max-width: 900px;
+  border-radius: 8px;
+  color: #333;
+  /* Adjusted from #002a66 for better consistency with new design */
+  font-size: 1rem;
+  /* Adjusted from 1.1rem for consistency */
+}
+
+body#jobs aside h3 {
+  color: var(--jobs-primary-blue);
+  margin-top: 0;
+  font-size: 1.2rem;
+  /* Ensures specific styling for aside h3 */
+}
+
+body#jobs aside p {
+  color: #333;
+  line-height: 1.6;
+}
+
+body#jobs aside a {
+  color: var(--login-primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+body#jobs aside a:hover {
+  text-decoration: underline;
+}
+
+/* --- Login Page Specific Styles --- */
+body#login {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #74ABE2, var(--login-primary-blue));
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  /* Overrides general body margin */
+  padding: 0;
+  /* Overrides general body padding */
+  max-width: 100%;
+  /* Allows flexbox to manage full width */
+}
+
+.login-container {
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.login-container input:focus {
+  border-color: var(--login-primary-blue);
+  outline: none;
+  box-shadow: 0 0 5px rgba(85, 99, 222, 0.3);
+}
+
+.login-container button {
+  width: 100%;
+  background: var(--login-primary-blue);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.login-container button:hover {
+  background: #3d4bb5;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.success-message {
+  color: #27ae60;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.login-container a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--login-primary-blue);
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
 /* --- Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+  .centered {
+    font-size: 6vw;
+    /* Larger font size for tablets */
+  }
+
+  /* Responsive for job page */
+  .page-title h1 {
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 600px) {
 
   /* Navigation for smaller screens */
@@ -774,5 +952,17 @@ th {
   fieldset>select.selectable {
     width: 100%;
     /* Input fields and selects take full width */
+  }
+
+  /* Responsive for job page */
+  .job-posting {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centered {
+    font-size: 7vw;
+    /* Even larger font size for mobile */
   }
 }
