@@ -16,6 +16,29 @@ require_once 'header.inc';
         color: #333;
     }
 
+    /* Navigation Bar */
+    .jobs-nav {
+        background: linear-gradient(90deg, #5563DE, #74ABE2);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .jobs-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        transition: opacity 0.2s ease;
+    }
+
+    .jobs-nav a:hover {
+        opacity: 0.85;
+        text-decoration: underline;
+    }
+
     .jobs-container {
         max-width: 1100px;
         margin: 2rem auto;
@@ -169,6 +192,14 @@ require_once 'header.inc';
     }
 </style>
 
+<!-- ✅ Navigation bar -->
+<nav class="jobs-nav">
+    <a href="#frontend">Frontend Developer</a>
+    <a href="#backend">Backend Developer</a>
+    <a href="http://localhost/Project-Part-2/about.php">About Us</a>
+    <a href="http://localhost/Project-Part-2/index.php">Home</a>
+</nav>
+
 <div class="jobs-container">
     <div class="page-title">
         <h1>Current Job Openings</h1>
@@ -181,8 +212,14 @@ require_once 'header.inc';
         <p class="developer-intro">We’re seeking talented developers passionate about building elegant, scalable, and impactful digital solutions. Join our tech team and help shape the future of our digital platform.</p>
 
         <?php while ($job = $result->fetch_assoc()): ?>
-            <?php if (stripos($job['title'], 'Frontend') !== false || stripos($job['title'], 'Backend') !== false): ?>
-                <div class="job-posting">
+            <?php 
+            $title = strtolower($job['title']);
+            $anchor_id = '';
+            if (strpos($title, 'frontend') !== false) $anchor_id = 'frontend';
+            elseif (strpos($title, 'backend') !== false) $anchor_id = 'backend';
+            ?>
+            <?php if ($anchor_id): ?>
+                <div class="job-posting" id="<?= $anchor_id ?>">
                     <h3><?= htmlspecialchars($job['title']); ?></h3>
                     <div class="ref-number">Ref: <?= htmlspecialchars($job['job_reference']); ?></div>
                     <p class="short-desc"><?= htmlspecialchars($job['short_desc']); ?></p>
@@ -211,6 +248,8 @@ require_once 'header.inc';
                     </ol>
 
                     <a class="apply-btn" href="apply.php?job_id=<?= htmlspecialchars($job['job_id']); ?>">Apply Now →</a>
+                    <!-- ✅ Added Application Form link (same as Apply button) -->
+                    <a class="apply-btn" href="apply.php?job_id=<?= htmlspecialchars($job['job_id']); ?>" style="margin-left:10px;">Application Form</a>
                 </div>
             <?php endif; ?>
         <?php endwhile; ?>
@@ -221,7 +260,7 @@ require_once 'header.inc';
         <p>
             We’re a people-first organization that values creativity, teamwork, and personal growth.
             You’ll enjoy flexible working, professional development, and the chance to make a real impact.
-            <a href="about.php">Learn more about us →</a>
+            <a href="http://localhost/Project-Part-2/about.php">Learn more about us →</a>
         </p>
     </aside>
 </div>
