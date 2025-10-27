@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2025 at 08:35 PM
+-- Generation Time: Oct 27, 2025 at 11:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,9 +41,9 @@ CREATE TABLE `about` (
 
 INSERT INTO `about` (`id`, `member_name`, `student_id`, `contributions`, `quote`) VALUES
 (1, 'Sanduni Yasaransi', '105524495', 'Jobs page sections; About page content & accessibility checks; Dynamic data loading for about page.', 'Code from the heart.'),
-(2, 'Samuel (Soph) Newbegin', '105337923', 'Designed Application Page, Created header & footer .inc files, created settings.php, General fix ups.', 'Talk about low-budget flights. No food or movies? I’m outta here.'),
+(2, 'Samuel (Soph) Newbegin', '105337923', 'Designed Application Page, Created header & footer .inc files, created settings.php, General fix ups', 'Talk about low-budget flights. No food or movies? I’m outta here.'),
 (3, 'Nima Adel', '105911262', 'Designed jobs.html, created logo.', 'AI is the future.'),
-(4, 'Zoe Ballantyne', '106131320', 'Content reviews; outreach copy.', 'I really care for the youth.');
+(4, 'Zoe Ballantyne', '106131320', 'Content reviews; outreach copy. process_eoi.php', 'I really care for the youth.');
 
 -- --------------------------------------------------------
 
@@ -52,27 +52,34 @@ INSERT INTO `about` (`id`, `member_name`, `student_id`, `contributions`, `quote`
 --
 
 CREATE TABLE `eoi` (
-  `eoi_id` int(11) NOT NULL,
-  `job_ref` varchar(50) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
+  `eoi_id` int(10) UNSIGNED NOT NULL,
+  `job_ref` char(5) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
   `date_of_birth` date NOT NULL,
-  `gender` varchar(20) DEFAULT NULL,
-  `street_address` varchar(255) DEFAULT NULL,
+  `gender` enum('Male','Female','Other','Prefer not to say') DEFAULT NULL,
+  `street_address` varchar(150) DEFAULT NULL,
   `town` varchar(100) DEFAULT NULL,
-  `state` varchar(50) DEFAULT NULL,
-  `postcode` varchar(10) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `phone_number` varchar(20) DEFAULT NULL,
-  `obedient` varchar(3) DEFAULT NULL,
-  `ignorance` varchar(3) DEFAULT NULL,
-  `social_lack` varchar(3) DEFAULT NULL,
-  `cursive` varchar(3) DEFAULT NULL,
-  `document_signing` varchar(3) DEFAULT NULL,
-  `other_skills` varchar(3) DEFAULT NULL,
+  `state` char(3) DEFAULT NULL,
+  `postcode` char(4) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `obedient` enum('Yes','No') DEFAULT NULL,
+  `ignorance` enum('Yes','No') DEFAULT NULL,
+  `social_lack` enum('Yes','No') DEFAULT NULL,
+  `cursive` enum('Yes','No') DEFAULT NULL,
+  `document_signing` enum('Yes','No') DEFAULT NULL,
+  `other_skills` enum('Yes','No') DEFAULT NULL,
   `other_skills_long` text DEFAULT NULL,
   `status` enum('New','Current','Final') DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`eoi_id`, `job_ref`, `first_name`, `last_name`, `date_of_birth`, `gender`, `street_address`, `town`, `state`, `postcode`, `email`, `phone_number`, `obedient`, `ignorance`, `social_lack`, `cursive`, `document_signing`, `other_skills`, `other_skills_long`, `status`) VALUES
+(1, '12345', 'John', 'Smith', '1234-12-12', 'Male', '123 Example Road', 'Example', 'VIC', '1234', 'email@email.com', '0412345678', 'Yes', 'No', 'Yes', 'No', 'Yes', 'Yes', 'Skills', 'New');
 
 -- --------------------------------------------------------
 
@@ -163,7 +170,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `eoi`
 --
 ALTER TABLE `eoi`
-  MODIFY `eoi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `eoi_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jobs`

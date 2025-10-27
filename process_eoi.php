@@ -1,9 +1,9 @@
 <?php
 
 
-require_once("header.inc");
 require_once("settings.php");
 
+// prevents users from accessing this page directly 
 if ($_SERVER["REQUEST_METHOD"] !== "POST" || empty($_POST)) {
     header("Location: apply.php");
     exit();
@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST" || empty($_POST)) {
 
 $table = 'eoi';
 
+// sanitises and removes backslashes, whitespaces and converts any html characters to prevent attacks
 function sanitise_input($data)
 {
     return htmlspecialchars(stripslashes(trim($data)));
@@ -31,6 +32,7 @@ $fields = [
     'other-skills-long'
 ];
 
+//loops each field and sanitises input
 $data = [];
 foreach ($fields as $field) {
     $data[$field] = sanitise_input($_POST[$field] ?? '');
@@ -42,6 +44,8 @@ foreach ($skills as $skill) {
 }
 
 $data['other-skills'] = isset($_POST['other-skills']) ? 'Yes' : 'No';
+
+// List of required form fields
 
 $required_fields = [
     'reference-number',
@@ -64,6 +68,7 @@ foreach ($required_fields as $field) {
     }
 }
 
+//validates the required  fields
 if (!empty($data['email']) && !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Invalid email format.";
 }
@@ -74,6 +79,7 @@ if (!empty($data['postcode']) && !preg_match('/^\d{4}$/', $data['postcode'])) {
     $errors[] = "Invalid postcode format.";
 }
 
+// Convert date from DD/MM/YYYY to YYYY-MM-DD for MySQL DATE format
 $dob_parts = explode('/', $data['date-of-birth']);
 if (count($dob_parts) === 3) {
     $data['date-of-birth'] = $dob_parts[2] . '-' . $dob_parts[1] . '-' . $dob_parts[0];
@@ -81,35 +87,36 @@ if (count($dob_parts) === 3) {
     $errors[] = "Invalid date format. Use DD/MM/YYYY.";
 }
 
+// Create the EOI table if it doesn't already exist 
 
 $createTableSQL = "
 CREATE TABLE IF NOT EXISTS `$table` (
-    eoi_id INT AUTO_INCREMENT PRIMARY KEY,
-    job_ref VARCHAR(50) NOT NULL,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
+    eoi_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    job_ref CHAR(5) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
     date_of_birth DATE NOT NULL,
-    gender VARCHAR(20),
-    street_address VARCHAR(255),
+    gender ENUM('Male', 'Female', 'Other', 'Prefer not to say'),
+    street_address VARCHAR(150),
     town VARCHAR(100),
-    state VARCHAR(50),
-    postcode VARCHAR(10),
-    email VARCHAR(100),
-    phone_number VARCHAR(20),
-    obedient VARCHAR(3),
-    ignorance VARCHAR(3),
-    social_lack VARCHAR(3),
-    cursive VARCHAR(3),
-    document_signing VARCHAR(3),
-    other_skills VARCHAR(3),
+    state CHAR(3),
+    postcode CHAR(4),
+    email VARCHAR(150),     
+    phone_number VARCHAR(15),
+    obedient ENUM('Yes','No'),
+    ignorance ENUM('Yes','No'),
+    social_lack ENUM('Yes','No'),
+    cursive ENUM('Yes','No'),
+    document_signing ENUM('Yes','No'),
+    other_skills ENUM('Yes','No'),
     other_skills_long TEXT,
     status ENUM('New', 'Current', 'Final') DEFAULT 'New'
 ) ENGINE=InnoDB;
 ";
-
 if (!mysqli_query($conn, $createTableSQL)) {
     die("<p>Error creating table: " . mysqli_error($conn) . "</p>");
 }
+
 
 $insertSQL = "INSERT INTO `$table`
     (job_ref, first_name, last_name, date_of_birth, gender, street_address, town, state, postcode,
@@ -146,6 +153,8 @@ mysqli_stmt_bind_param(
     $data['other-skills-long']
 );
 
+
+// Execute and check if it was successful
 if (mysqli_stmt_execute($stmt)) {
     $eoi_id = mysqli_insert_id($conn);
     echo "<h2>Application submitted successfully!</h2>";
