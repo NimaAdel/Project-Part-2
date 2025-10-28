@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2025 at 11:28 AM
+-- Generation Time: Oct 28, 2025 at 07:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,6 +44,42 @@ INSERT INTO `about` (`id`, `member_name`, `student_id`, `contributions`, `quote`
 (2, 'Samuel (Soph) Newbegin', '105337923', 'Designed Application Page, Created header & footer .inc files, created settings.php, General fix ups', 'Talk about low-budget flights. No food or movies? I’m outta here.'),
 (3, 'Nima Adel', '105911262', 'Designed jobs.html, created logo.', 'AI is the future.'),
 (4, 'Zoe Ballantyne', '106131320', 'Content reviews; outreach copy. process_eoi.php', 'I really care for the youth.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi`
+--
+
+CREATE TABLE `eoi` (
+  `eoi_id` int(10) UNSIGNED NOT NULL,
+  `job_ref` char(5) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` enum('Male','Female','Other','Prefer not to say') DEFAULT NULL,
+  `street_address` varchar(150) DEFAULT NULL,
+  `town` varchar(100) DEFAULT NULL,
+  `state` char(3) DEFAULT NULL,
+  `postcode` char(4) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `obedient` enum('Yes','No') DEFAULT NULL,
+  `ignorance` enum('Yes','No') DEFAULT NULL,
+  `social_lack` enum('Yes','No') DEFAULT NULL,
+  `cursive` enum('Yes','No') DEFAULT NULL,
+  `document_signing` enum('Yes','No') DEFAULT NULL,
+  `other_skills` enum('Yes','No') DEFAULT NULL,
+  `other_skills_long` text DEFAULT NULL,
+  `status` enum('New','Current','Final') DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`eoi_id`, `job_ref`, `first_name`, `last_name`, `date_of_birth`, `gender`, `street_address`, `town`, `state`, `postcode`, `email`, `phone_number`, `obedient`, `ignorance`, `social_lack`, `cursive`, `document_signing`, `other_skills`, `other_skills_long`, `status`) VALUES
+(4, '00000', 'Test', 'User', '2001-01-01', 'Male', '1 Test Street', 'Test', 'VIC', '1111', 'test@test.test', '11111111', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes', 'aaaa', 'New');
 
 -- --------------------------------------------------------
 
@@ -101,6 +137,12 @@ ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `eoi`
+--
+ALTER TABLE `eoi`
+  ADD PRIMARY KEY (`eoi_id`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -123,6 +165,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `eoi`
+--
+ALTER TABLE `eoi`
+  MODIFY `eoi_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jobs`
