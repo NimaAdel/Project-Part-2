@@ -69,7 +69,7 @@ $result = $stmt->get_result();
 
 <head>
     <title>Manage EOIs</title>
-    <link rel="stylesheet" href="/styles/project.css" type="text/css">
+    <link rel="stylesheet" href="styles/project.css" type="text/css">
 
 </head>
 
